@@ -138,7 +138,8 @@ class ViewController: UIViewController {
         _ = alert.addButton("Second Button") {
             print("Second button tapped")
         }
-        _ = alert.showCustom("Custom Color", subTitle: "Custom color")
+        _ = alert.showCustom("Custom Color", subTitle: "Custom color", subTitleColor: .gray)
+        
     }
 	
 	func firstButton() {
