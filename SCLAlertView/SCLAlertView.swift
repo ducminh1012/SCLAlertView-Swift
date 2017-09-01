@@ -141,50 +141,50 @@ public typealias DismissBlock = () -> Void
 open class SCLAlertView: UIViewController {
     
     public struct SCLAppearance {
-        let kDefaultShadowOpacity: CGFloat
-        let kCircleTopPosition: CGFloat
-        let kCircleBackgroundTopPosition: CGFloat
-        let kCircleHeight: CGFloat
-        let kCircleIconHeight: CGFloat
-        let kTitleTop:CGFloat
-        let kTitleHeight:CGFloat
-	let kTitleMinimumScaleFactor: CGFloat
-        let kWindowWidth: CGFloat
-        var kWindowHeight: CGFloat
-        var kTextHeight: CGFloat
-        let kTextFieldHeight: CGFloat
-        let kTextViewdHeight: CGFloat
-        let kButtonHeight: CGFloat
-		let circleBackgroundColor: UIColor
-        let contentViewColor: UIColor
-        let contentViewBorderColor: UIColor
-        let titleColor: UIColor
+        public var kDefaultShadowOpacity: CGFloat
+        public var kCircleTopPosition: CGFloat
+        public var kCircleBackgroundTopPosition: CGFloat
+        public var kCircleHeight: CGFloat
+        public var kCircleIconHeight: CGFloat
+        public var kTitleTop:CGFloat
+        public var kTitleHeight:CGFloat
+        public var kTitleMinimumScaleFactor: CGFloat
+        public var kWindowWidth: CGFloat
+        public var kWindowHeight: CGFloat
+        public var kTextHeight: CGFloat
+        public var kTextFieldHeight: CGFloat
+        public var kTextViewdHeight: CGFloat
+        public var kButtonHeight: CGFloat
+		public var circleBackgroundColor: UIColor
+        public var contentViewColor: UIColor
+        public var contentViewBorderColor: UIColor
+        public var titleColor: UIColor
         
         // Fonts
-        let kTitleFont: UIFont
-        let kTextFont: UIFont
-        let kButtonFont: UIFont
+        public var kTitleFont: UIFont
+        public var kTextFont: UIFont
+        public var kButtonFont: UIFont
         
         // UI Options
-        var disableTapGesture: Bool
-        var showCloseButton: Bool
-        var showCircularIcon: Bool
-        var shouldAutoDismiss: Bool // Set this false to 'Disable' Auto hideView when SCLButton is tapped
-        var contentViewCornerRadius : CGFloat
-        var fieldCornerRadius : CGFloat
-        var buttonCornerRadius : CGFloat
-        var dynamicAnimatorActive : Bool
-        var buttonsLayout: SCLAlertButtonLayout
+        public var disableTapGesture: Bool
+        public var showCloseButton: Bool
+        public var showCircularIcon: Bool
+        public var shouldAutoDismiss: Bool // Set this false to 'Disable' Auto hideView when SCLButton is tapped
+        public var contentViewCornerRadius : CGFloat
+        public var fieldCornerRadius : CGFloat
+        public var buttonCornerRadius : CGFloat
+        public var dynamicAnimatorActive : Bool
+        public var buttonsLayout: SCLAlertButtonLayout
         // Actions
-        var hideWhenBackgroundViewIsTapped: Bool
+        public var hideWhenBackgroundViewIsTapped: Bool
         
-        public init(kDefaultShadowOpacity: CGFloat = 0.7, kCircleTopPosition: CGFloat = 0.0, kCircleBackgroundTopPosition: CGFloat = 6.0, kCircleHeight: CGFloat = 56.0, kCircleIconHeight: CGFloat = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0,  kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFont(ofSize: 20), kTitleMinimumScaleFactor: CGFloat = 1.0, kTextFont: UIFont = UIFont.systemFont(ofSize: 14), kButtonFont: UIFont = UIFont.boldSystemFont(ofSize: 14), showCloseButton: Bool = true, showCircularIcon: Bool = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false, circleBackgroundColor: UIColor = UIColor.white, contentViewColor: UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIColor = UIColorFromRGB(0x4D4D4D), dynamicAnimatorActive: Bool = false, disableTapGesture: Bool = false, buttonsLayout: SCLAlertButtonLayout = .vertical) {
+        public init(kDefaultShadowOpacity: CGFloat? = 0.7, kCircleTopPosition: CGFloat? = 0.0, kCircleBackgroundTopPosition: CGFloat? = 6.0, kCircleHeight: CGFloat? = 56.0, kCircleIconHeight: CGFloat? = 20.0, kTitleTop:CGFloat = 30.0, kTitleHeight:CGFloat = 25.0,  kWindowWidth: CGFloat = 240.0, kWindowHeight: CGFloat = 178.0, kTextHeight: CGFloat = 90.0, kTextFieldHeight: CGFloat = 45.0, kTextViewdHeight: CGFloat = 80.0, kButtonHeight: CGFloat = 45.0, kTitleFont: UIFont = UIFont.systemFont(ofSize: 20), kTitleMinimumScaleFactor: CGFloat = 1.0, kTextFont: UIFont = UIFont.systemFont(ofSize: 14), kButtonFont: UIFont = UIFont.boldSystemFont(ofSize: 14), showCloseButton: Bool = true, showCircularIcon: Bool? = true, shouldAutoDismiss: Bool = true, contentViewCornerRadius: CGFloat = 5.0, fieldCornerRadius: CGFloat = 3.0, buttonCornerRadius: CGFloat = 3.0, hideWhenBackgroundViewIsTapped: Bool = false, circleBackgroundColor: UIColor = UIColor.white, contentViewColor: UIColor = UIColorFromRGB(0xFFFFFF), contentViewBorderColor: UIColor = UIColorFromRGB(0xCCCCCC), titleColor: UIColor = UIColorFromRGB(0x4D4D4D), dynamicAnimatorActive: Bool = false, disableTapGesture: Bool = false, buttonsLayout: SCLAlertButtonLayout = .vertical) {
             
-            self.kDefaultShadowOpacity = kDefaultShadowOpacity
-            self.kCircleTopPosition = kCircleTopPosition
-            self.kCircleBackgroundTopPosition = kCircleBackgroundTopPosition
-            self.kCircleHeight = kCircleHeight
-            self.kCircleIconHeight = kCircleIconHeight
+            self.kDefaultShadowOpacity = kDefaultShadowOpacity ?? 0.7
+            self.kCircleTopPosition = kCircleTopPosition ?? 0.0
+            self.kCircleBackgroundTopPosition = kCircleBackgroundTopPosition ?? 6.0
+            self.kCircleHeight = kCircleHeight ?? 56.0
+            self.kCircleIconHeight = kCircleIconHeight ?? 20.0
             self.kTitleTop = kTitleTop
             self.kTitleHeight = kTitleHeight
             self.kWindowWidth = kWindowWidth
@@ -205,7 +205,7 @@ open class SCLAlertView: UIViewController {
             
             self.disableTapGesture = disableTapGesture
             self.showCloseButton = showCloseButton
-            self.showCircularIcon = showCircularIcon
+            self.showCircularIcon = showCircularIcon ?? true
             self.shouldAutoDismiss = shouldAutoDismiss
             self.contentViewCornerRadius = contentViewCornerRadius
             self.fieldCornerRadius = fieldCornerRadius
@@ -629,12 +629,12 @@ open class SCLAlertView: UIViewController {
     
     // showCustom(view, title, subTitle, UIColor, UIImage)
     @discardableResult
-    open func showCustom(_ title: String, subTitle: String, color: UIColor, icon: UIImage, closeButtonTitle:String?=nil, timeout:SCLTimeoutConfiguration?=nil, colorStyle: UInt=SCLAlertViewStyle.success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
+    open func showCustom(_ title: String, subTitle: String, color: UIColor? = .orange, icon: UIImage? = nil, closeButtonTitle:String?=nil, timeout:SCLTimeoutConfiguration?=nil, colorStyle: UInt=SCLAlertViewStyle.success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil, animationStyle: SCLAnimationStyle = .topToBottom) -> SCLAlertViewResponder {
         
         
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         
-        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        color?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
         var colorAsUInt32 : UInt32 = 0
         colorAsUInt32 += UInt32(red * 255.0) << 16

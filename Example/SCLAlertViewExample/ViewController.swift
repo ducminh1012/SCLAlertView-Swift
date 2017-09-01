@@ -128,24 +128,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showCustomAlert(_ sender: AnyObject) {
-        let appearance = SCLAlertView.SCLAppearance(
-            kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
-            kTextFont: UIFont(name: "HelveticaNeue", size: 14)!,
-            kButtonFont: UIFont(name: "HelveticaNeue-Bold", size: 14)!,
-            showCloseButton: false,
-            dynamicAnimatorActive: true,
-            buttonsLayout: .horizontal
-        )
+        var appearance = SCLAlertView.SCLAppearance()
+        appearance.showCircularIcon = false
+        appearance.showCloseButton = false
+        appearance.buttonsLayout = .horizontal
+        
         let alert = SCLAlertView(appearance: appearance)
         _ = alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
         _ = alert.addButton("Second Button") {
             print("Second button tapped")
         }
-        
-        let icon = UIImage(named:"custom_icon.png")
-        let color = UIColor.orange
-        
-        _ = alert.showCustom("Custom Color", subTitle: "Custom color", color: color, icon: icon!)
+        _ = alert.showCustom("Custom Color", subTitle: "Custom color")
     }
 	
 	func firstButton() {
